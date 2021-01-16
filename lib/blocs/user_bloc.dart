@@ -35,7 +35,7 @@ class UserBloc extends BlocBase{
       if(user != null){
         _currentUserSubject.sink.add(user);
         //TODO: remove comment from the statement below to enable online presence check.
-        // userService.checkUserPresence();
+        userService.checkUserPresence();
       }
     });
 

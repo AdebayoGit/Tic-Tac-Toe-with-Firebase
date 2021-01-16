@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "427016621540",
+    "firebase_url": "https://tictac-c7103-default-rtdb.firebaseio.com/",
     "project_id": "tictac-c7103",
     "storage_bucket": "tictac-c7103.appspot.com"
   },

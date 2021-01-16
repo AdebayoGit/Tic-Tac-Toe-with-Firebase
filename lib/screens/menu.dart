@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:tictacapp/models/game.dart';
-import 'package:tictacapp/models/user.dart';
+import 'package:tictacapp/models/User.dart';
 import 'package:tictacapp/utils/constants.dart';
 import 'package:tictacapp/utils/logoText.dart';
 import 'package:tictacapp/utils/main_back.dart';
@@ -52,6 +52,19 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
                         height: size.height * 0.35,
                       ),
                       SizedBox(height: size.height * 0.01),
+                      StreamBuilder(
+                        initialData: null,
+                        stream: _userBloc.currentUser,
+                        builder: (context, currentUserSnapshot) {
+                          if (!currentUserSnapshot.hasData) {
+                            return Container();
+                          }
+                          User currentUser = currentUserSnapshot.data;
+                          return (currentUser != null)
+                              ? Text('Hi ' + currentUser.name)
+                              : Container();
+                        },
+                      ),
 
                       SizedBox(height: size.height * 0.01),
                       Button(
