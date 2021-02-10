@@ -18,16 +18,15 @@ class MyApp extends StatelessWidget {
     return BlocProvider<UserBloc>(
         bloc: UserBloc(userService: userService),
         child: BlocProvider<GameBloc>(
-            bloc: GameBloc(gameService: GameService(), userService: userService),
-    child:MaterialApp(
-      title: 'Tic Tac Go',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: Menu(),
-      ))
-      );
+            bloc:
+                GameBloc(gameService: GameService(), userService: userService),
+            child: MaterialApp(
+              title: 'Tic Tac Go',
+              theme: ThemeData(
+                primarySwatch: Colors.purple,
+                visualDensity: VisualDensity.adaptivePlatformDensity,
+              ),
+              home: Menu(),
+            )));
   }
 }
-

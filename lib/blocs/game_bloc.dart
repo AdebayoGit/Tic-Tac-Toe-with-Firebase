@@ -32,7 +32,7 @@ class GameBloc extends BlocBase {
   final _gameOverSubject = BehaviorSubject<bool>();
   final _playPiece = BehaviorSubject<Map<String, dynamic>>();
   final _multiNetworkMessage =
-  BehaviorSubject<String>(seedValue: 'Tic Tac Toe ...');
+  BehaviorSubject<String>(seedValue: 'Tic Tac Go ...');
   final _multiNetworkStarted = BehaviorSubject<bool>();
   final _cancelGameSubject = BehaviorSubject<Null>();
   final _startSingleDeviceGame = BehaviorSubject<GameType>();
@@ -300,7 +300,7 @@ class GameBloc extends BlocBase {
   }
 
   _handleClearProcessDetails(_) {
-    _multiNetworkMessage.sink.add('Tic Tac Toe');
+    _multiNetworkMessage.sink.add('Tic Tac Go');
     _multiNetworkStarted.sink.add(false);
   }
 

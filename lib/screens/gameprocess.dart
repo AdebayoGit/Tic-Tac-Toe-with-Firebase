@@ -30,7 +30,26 @@ class _GameProcessPageState extends State<GameProcessPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          
+          children: <Widget>[
+            StreamBuilder<String>(
+              initialData: '',
+              stream: _gameBloc.multiNetworkMessage,
+              builder: (context, messageSnapshot){
+                return Text(messageSnapshot.data, style: TextStyle(fontSize: 30.0 , fontWeight: FontWeight.bold),);
+              },
+            ),
+            SizedBox(height: 40.0,),
+            StreamBuilder<bool>(
+              initialData: false,
+              stream: _gameBloc.multiNetworkStarted,
+              builder: (context, startedSnapshot){
+
+                return (startedSnapshot.data)? RaisedButton(child: Text('GO TO GAME'), onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder:(index)=> GameBoard()));
+                },) : Container();
+              },
+            )
+          ],
         ),
       ),
     );

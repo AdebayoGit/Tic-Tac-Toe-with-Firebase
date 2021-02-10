@@ -3,58 +3,21 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tictacapp/models/User.dart';
-import 'package:tictacapp/models/app_error.dart';
 import 'package:tictacapp/utils/user_util.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_database/firebase_database.dart';
-//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 
 class UserService {
   FirebaseAuth _auth;
-  GoogleSignIn _googleSignIn;
 
   UserService() {
     _auth = FirebaseAuth.instance;
-    _googleSignIn = GoogleSignIn();
   }
+  // Todo Add Facebook Authentication
 
-  /*Future<User> authenticateWithFaceBook() async {
-    var facebookLogin = new FacebookLogin();
-    var result = await facebookLogin.logInWithReadPermissions(['email']);
+  // Todo Add Google Authentication
 
-    switch (result.status) {
-      case FacebookLoginStatus.loggedIn:
-        FirebaseUser user = (await _auth.signInWithFacebook(
-            accessToken: result.accessToken.token)).user;
-        return _processAuthUser(user);
-        break;
-      case FacebookLoginStatus.cancelledByUser:
-        throw (AppError('Login Cancelled'));
-        break;
-      case FacebookLoginStatus.error:
-        throw (AppError('Login Failed'));
-        break;
-    }
-
-    return null;
-  }*/
-
-  /*Future<User> authenticateWithGoogle() async {
-    try {
-      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth =
-      await googleUser.authentication;
-      final FirebaseUser user = await _auth.signInWithGoogle(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-      return _processAuthUser(user);
-    } catch (error) {
-      throw (AppError('Error occured during google authentication'));
-    }
-  }*/
 
   Future<User> signUpWithEmailAndPassword(username, email, password) async {
     final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(

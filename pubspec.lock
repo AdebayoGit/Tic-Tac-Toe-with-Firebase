@@ -43,6 +43,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.11"
+  cloud_functions:
+    dependency: "direct main"
+    description:
+      name: cloud_functions
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.5"
   collection:
     dependency: transitive
     description:
@@ -113,6 +120,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.6"
+  firebase_messaging:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.1.8"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -135,13 +149,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  google_sign_in:
+  font_awesome_flutter:
     dependency: "direct main"
     description:
-      name: google_sign_in
+      name: font_awesome_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.0+1"
+    version: "8.11.0"
   http:
     dependency: "direct main"
     description:
@@ -205,6 +219,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
+  platform:
+    dependency: transitive
+    description:
+      name: platform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
   plugin_platform_interface:
     dependency: transitive
     description:

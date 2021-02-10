@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tictacapp/utils/sign_up_body.dart';
+import 'package:tictacapp/utils/authbody.dart';
 
-class SignUpScreen extends StatelessWidget {
+class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Body(true),
+      body: Body(false),
     );
   }
 }

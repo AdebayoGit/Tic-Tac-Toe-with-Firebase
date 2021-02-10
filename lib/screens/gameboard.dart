@@ -62,9 +62,10 @@ class _GameBoardState extends State<GameBoard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: new Background(
-      child: WillPopScope(
+    Size size = MediaQuery
+        .of(context)
+        .size;
+    return WillPopScope(
       onWillPop: _cancelGameDialog,
       child: Scaffold(
         body: Padding(
@@ -111,7 +112,7 @@ class _GameBoardState extends State<GameBoard> with TickerProviderStateMixin {
                   },
                 ),
 
-                SizedBox(height: 70.0),
+              SizedBox(height: size.height * 0.1),
 
                 Container(
                   child: Center(child:
@@ -131,14 +132,15 @@ class _GameBoardState extends State<GameBoard> with TickerProviderStateMixin {
                   ),
                 ),
 
-                SizedBox(height: 30.0),
+                SizedBox(height: size.height * 0.05),
 
                 StreamBuilder<bool>(
                   initialData: false,
                   stream: _gameBloc.gameOver,
                   builder: (context, allowReplaySnapshot){
 
-                    return (allowReplaySnapshot.data)?_menuButton('PLAY AGAIN', () {
+                    return (allowReplaySnapshot.data)? _menuButton(
+                        'PLAY AGAIN', () {
                       _gameBloc.replayCurrentGame();
                     }): Container();
                   },
@@ -149,7 +151,7 @@ class _GameBoardState extends State<GameBoard> with TickerProviderStateMixin {
         ),
       ),
 
-    )));
+    );
   }
 
   Future<bool> _cancelGameDialog(){
@@ -229,18 +231,18 @@ class _GameBoardState extends State<GameBoard> with TickerProviderStateMixin {
   }
 
   _drawBoardTile(GamePiece gamepiece, position, {border}) {
-    Color pieceColor = Colors.blue[900];
+    Color pieceColor = player1;
 
     double calculatedBlocSize =  MediaQuery.of(context).size.width/3 - 20;
     double blockSize =  (calculatedBlocSize > 120) ? 120 : calculatedBlocSize;
 
     switch (gamepiece.pieceType) {
       case PieceType.win:
-        pieceColor = Colors.green[900];
+        pieceColor = player2;
         break;
       case PieceType.normal:
       default:
-        pieceColor = Colors.white;
+        pieceColor = player1;
         break;
     }
     return  GestureDetector(
@@ -270,10 +272,9 @@ class _GameBoardState extends State<GameBoard> with TickerProviderStateMixin {
       child: SizedBox(
         width: 200.0,
         child: Button(
-          text: 'Replay',
-          press: onPressed,
-              ),
-            ),
+            text: text,
+            press: onPressed),
+      ),
     );
   }
 
@@ -299,3 +300,4 @@ class _GameBoardState extends State<GameBoard> with TickerProviderStateMixin {
     );
   }
 }
+

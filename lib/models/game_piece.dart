@@ -1,4 +1,4 @@
-enum PieceType{win, normal, temp}
+enum PieceType{win, normal, player1, player2, temp}
 
 
 class GamePiece{

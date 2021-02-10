@@ -10,7 +10,7 @@ class Button extends StatelessWidget {
     this.text,
     this.press,
     this.color = primaryColor,
-    this.textColor = Colors.white,
+    this.textColor = Colors.white, Padding child,
   }) : super(key: key);
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tictacapp/Screens/register.dart';
+import 'package:tictacapp/Screens/authpage.dart';
 import 'package:tictacapp/utils/logoText.dart';
 import 'package:tictacapp/utils/sign_up_back.dart';
 import 'package:tictacapp/utils/button.dart';
@@ -73,11 +73,7 @@ class _BodyState extends State<Body> implements BlocCompleter<User> {
                 children: <Widget>[
                   LogoText(),
                   SizedBox(height: size.height * 0.03),
-                  Image.asset(
-                    "assets/login.png",
-                    height: size.height * 0.35,
-                  ),
-                  SizedBox(height: size.height * 0.03),
+                  //SizedBox(height: size.height * 0.03),
                   _authTextField(
                       controller: _emailController,
                       hintText: 'Your Email',
@@ -116,7 +112,7 @@ class _BodyState extends State<Body> implements BlocCompleter<User> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return SignUpScreen();
+                            //return SignUpScreen();
                           },
                         ),
                       );
